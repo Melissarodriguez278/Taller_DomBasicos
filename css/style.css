@@ -1,0 +1,207 @@
+/* ============================
+   Actividad 1: DOM - Estilos
+   Paleta suave: lila + rosa pastel
+   ============================ */
+
+:root {
+  --bg: #faf6ff;
+  --surface: #ffffff;
+  --surface-2: #f3ebff;
+  --text: #4a3f5c;
+  --text-muted: #7a6d8f;
+  --accent: #a78bfa;
+  --accent-2: #f472b6;
+  --accent-soft: rgba(167, 139, 250, 0.18);
+  --border: #e8dcf7;
+  --shadow: 0 8px 24px rgba(167, 139, 250, 0.15);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 3rem 1.25rem 4rem;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(244, 114, 182, 0.14), transparent 40%),
+    radial-gradient(circle at 88% 0%, rgba(167, 139, 250, 0.2), transparent 42%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+/* Contenedor central */
+body > * {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Títulos */
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 2.5rem auto 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--accent-2);
+  color: #3b3150;
+}
+
+/* Texto */
+p {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  color: var(--text-muted);
+  box-shadow: var(--shadow);
+}
+
+strong {
+  color: var(--text);
+}
+
+code {
+  font-family: "Fira Code", Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--surface-2);
+  color: #8b5cf6;
+  padding: 0.15em 0.45em;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* Lista de ejercicios */
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+li {
+  margin: 0;
+}
+
+li a {
+  display: block;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease, border-color 0.2s ease,
+              background 0.2s ease, box-shadow 0.2s ease;
+}
+
+li a:hover,
+li a:focus-visible {
+  transform: translateX(6px);
+  border-color: var(--accent);
+  background: var(--surface-2);
+  box-shadow: 0 6px 20px var(--accent-soft);
+  outline: none;
+}
+
+/* ============================
+   Formularios (ejercicios)
+   ============================ */
+
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+input[readonly],
+input:disabled {
+  background: var(--surface-2);
+  font-weight: 600;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  width: auto;
+  padding: 0.65rem 1.2rem;
+  margin: 0 0.4rem 0.4rem 0;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(167, 139, 250, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 20px rgba(244, 114, 182, 0.35);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  body {
+    padding: 2rem 1rem 3rem;
+  }
+
+  p,
+  form {
+    padding: 1rem;
+  }
+}
